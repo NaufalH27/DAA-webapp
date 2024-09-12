@@ -1,3 +1,7 @@
+import landing from "./views/landing.js"
+import coinChange from "./views/coinChange.js"
+import twentySolver from "./views/twentySolver.js";
+import pageNotFound from "./views/pageNotFOund.js";
 
 const NavigateTo = url => {
     history.pushState(null, null, url);
@@ -6,8 +10,9 @@ const NavigateTo = url => {
 
 const router = async() => {
     const routes = [
-        { path: "/greedyalgorithm", view: greedyalgorithm},
-        { path: "/twentysolver", view: twentysolver},
+        { path: "/", view: landing},
+        { path: "/coinchange", view: coinChange},
+        { path: "/twentysolver", view: twentySolver},
     ];
     const routeNotFound = {view: pageNotFound}
 
@@ -20,7 +25,6 @@ const router = async() => {
     
     const view = new matchedRoute.view();
     document.querySelector("#app").innerHTML = await view.getHtml();
-    view.loadUi();
 };
 
 document.addEventListener("DOMContentLoaded", () => {

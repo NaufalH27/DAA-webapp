@@ -1,24 +1,204 @@
 
+@import url('https://fonts.googleapis.com/css?family=Work+Sans:400,600');
+@import url('https://fonts.cdnfonts.com/css/open-sans');
+@import url('https://fonts.cdnfonts.com/css/source-sans-pro');
+
+body {
+	margin: 0;
+	font-family: 'Work Sans', sans-serif;
+	font-weight: 800;
+    background: rgb(31, 31, 31);
+}
+
+.nav-container {
+	margin: 0 auto;
+    overflow: hidden;
+    height: 80px;
+}
+
+header {
+    background: rgb(39, 39, 39);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0; 
+    z-index: 10; 
+    overflow: hidden;
+
+}
+
+header::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+header h1{
+    margin-right: 80px;
+    margin-left: 40px;
+    color:white;
+    font-size: 23px;
+    
+}
+
+.github-logo{
+    float: right;
+    height: 40px;
+    margin: 20px;
+    margin-left: 0px;
+    
+}
+
+.logo {
+    float: left;
+    padding: 10px 0;
+}
+
 nav {
-    background-color: #333;
-    padding: 10px;
+    float: left;
 }
+
 nav ul {
+    margin: 0;
+    padding: 0;
     list-style: none;
-    display: flex;
-    gap: 20px;
 }
-nav ul li {
-    display: inline;
+
+nav li {
+    display: inline-block;
+    margin-right: 60px;
+    padding-top: 25px;
+
+    position: relative;
 }
-nav ul li a {
-    color: white;
+
+nav a {
+    color: #e1e1e1;
     text-decoration: none;
-    padding: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    display: inline-block;
+    height: 50px;
 }
-nav ul li a:hover {
-    background-color: #555;
+
+nav a:hover {
+     color: #ffffff;
 }
-#app {
+
+nav a::before {
+    content: '';
+    display: block;
+    height: 5px;
+    background-color: #ffffff;
+
+    position: absolute;
+    top: 0;
+    width: 0%;
+
+    transition: all ease-in-out 250ms;
+}
+
+nav a:hover::before {
+     width: 100%;
+}
+
+
+main {
+    font-family: "Source Sans Pro", sans-serif;
+    color: #e2e2e2;
+    max-width: 1500px; 
+    margin: 0 auto; 
+    box-sizing: border-box;
+    background: rgb(31, 31, 31);
+    
+}
+
+.main-container {
+    padding-left: 10px;
+    padding-right: 10px;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: space-between;
+}
+
+.web-explanation{
+    width: 35%;
+    padding: 50px;
+
+}
+
+
+.content-title{ 
+    text-align: left;
+}
+
+.content-title h1{
+    color: rgb(255, 197, 70);
+}
+
+.content-subtitle{
+    text-align: left;
+}
+
+.content-description{
+    text-align: left;
+    
+}
+
+main h4{
+    font-family: "Open Sans Light", sans-serif;
+    color: rgb(170, 169, 169);
+}
+
+
+.button-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.button-container section{
+    display: flex;
+    align-items: center;
+}
+
+button-container .span{
+    display: inline-block;
+}
+  
+.button {
+    margin: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background: #2f2f2f;
+    width: 160px;
     padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f0f0f0;
+    border-radius: 15px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition-duration: 0.3s;
+    transition-property: box-shadow, transform;
+}
+
+.button:hover, .button:focus, .button:active {
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+}
+
+.first-button:hover + .first-description {
+    transition-duration: 0.3s;
+    transform: translateX(10px);
+}
+
+.second-button:hover + .second-description {
+    transition-duration: 0.3s;
+    transform: translateX(10px);
+}
+.main-image{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
 }
