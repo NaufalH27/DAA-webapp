@@ -34,7 +34,8 @@ export default class extends abstractView {
                         <span class="second-description">
                             <h4> - implementasi Brtue Force</h4>
                         </span>
-                    </section>                        
+                    </section> 
+                    <h5>by:<br>- Naufal Hisyam Muzakki (L0123106)<br>- Mukhlis abdurrahman (L0123100-)  </h5>                       
                 </div>
             </div>
             <div class ="main-image">

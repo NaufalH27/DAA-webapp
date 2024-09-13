@@ -118,6 +118,8 @@ main {
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
+    
+   
 }
 
 .web-explanation{
@@ -201,4 +203,66 @@ button-container .span{
     display: flex;
     align-items: flex-end;
     justify-content: flex-start;
+}
+
+main h5{
+    font-family: "Open Sans Light", sans-serif;
+    color: rgb(170, 169, 169);
+}
+
+
+.form-container {
+    display: inline-block;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+}
+
+form input {
+    width: 60px; /* Width of the input fields */
+    padding: 15px;
+    margin: 0 10px; /* Horizontal space between inputs */
+    border-radius: 4px;
+    border: none;
+    background-color: #1f1f1f;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    outline: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+/* Hide number input spinners */
+form input[type="number"]::-webkit-inner-spin-button,
+form input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+form input[type="number"] {
+    -moz-appearance: textfield; /* For Firefox */
+}
+
+form input::placeholder {
+    color: #888;
+}
+
+form input:focus {
+    background-color: #2a2a2a;
+    box-shadow: 0 0 5px #555;
+}
+
+
+main .page-title h1{
+    font-size: 60px;
+}
+
+main .input-container{
+    max-width: 1100px;
 }
