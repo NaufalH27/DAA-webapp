@@ -20,28 +20,28 @@ export default class extends abstractView {
                 <div class="content-description">
                     <h4>Implementasi Greedy Algorithm di kasus "Coin Change" dan implementasi Brute Force di kasus "20 - Solver"  </h4>
                 </div>
-                <br>
                 <h2>Coba Sekarang:</h2>
                 <div class="button-container">
                     <section>
-                        <a class="button first-button" href="/coinchange">Coin Change</a>
+                        <a class="button first-button" href="/coinchange" data-link>Coin Change</a>
                         <span  class="first-description">
                             <h4> - implementasi Greedy Algorithm</h4>
                         </span>
                     </section>
                     <section>
-                        <a class="button second-button" href="/twentysolver">20 - Solver</a>
+                        <a class="button second-button" href="/twentysolver" data-link>20 - Solver</a>
                         <span class="second-description">
                             <h4> - implementasi Brtue Force</h4>
                         </span>
                     </section> 
-                    <h5>by:<br>- Naufal Hisyam Muzakki (L0123106)<br>- Mukhlis abdurrahman (L0123100-)  </h5>                       
+                    <br>
+                    <br>
+                    <h6>by:<br>- Naufal Hisyam Muzakki (L0123106)<br>- Mukhlis abdurrahman (L0123100)  </h6>                       
                 </div>
             </div>
             <div class ="main-image">
                 <img src="static/assets/cube.png">
             </div>
-        
         `
 
     }

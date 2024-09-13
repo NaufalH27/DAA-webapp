@@ -1,7 +1,7 @@
-import landing from "./views/landing.js"
-import coinChange from "./views/coinChange.js"
-import twentySolver from "./views/twentySolver.js";
-import pageNotFound from "./views/pageNotFOund.js";
+import home from "../../views/homeView.js"
+import coinChange from "../../views/coinChangeView.js"
+import twentySolver from "../../views/twentySolverView.js";
+import pageNotFound from "../../views/pageNotFoundView.js";
 
 const NavigateTo = url => {
     history.pushState(null, null, url);
@@ -10,7 +10,7 @@ const NavigateTo = url => {
 
 const router = async() => {
     const routes = [
-        { path: "/", view: landing},
+        { path: "/", view: home},
         { path: "/coinchange", view: coinChange},
         { path: "/twentysolver", view: twentySolver},
     ];
@@ -37,3 +37,4 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
 });
 window.addEventListener("popstate", router);
+

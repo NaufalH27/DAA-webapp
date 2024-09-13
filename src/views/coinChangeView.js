@@ -1,30 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/styles.css">
-    <title>Desain Analisis Algoritma</title>
-</head>
-<body>
-    <header>
-        
-        <div class="nav-container">
-        <h1 class="logo">DAA Tugas 1</h1>
-          <nav>
-            <ul>
-                <li><a href="/" data-link>Home</a></li>
-                <li><a href="/coinchange" data-link>Coin Change</a></li>
-                <li><a href="/twentysolver" data-link>20-solver</a></li>
-            </ul>
-          </nav>
-          <a href="https://github.com/NaufalH27/DAA-webapp" target="_blank"><img class="github-logo" src="/static/assets/github-mark-white.png"></a>
-        </div>
-      </header>
+import abstractView from "./abstractView.js";
 
-        <main>
-            <div class="main-container" id="app" >
-              <!-- <div class="input-container">
+export default class extends abstractView {
+
+    constructor(){
+        super();
+        this.setTitle("Coin Change");
+
+    }
+
+    
+    async getHtml(){
+        return  `
+          <div class="input-container">
                 <div class="content-title page-title">
                     <h1 class="content-title">Coin Change</h1>
                 </div>
@@ -49,14 +36,10 @@
                   </section>
                   </div>
                 </div> 
-            </div> -->
-             
             </div>
-        </main>
+        
+        `
 
+    }
 
-        <script type="module" src="static/router.js"></script>
-    
-
-</body>
-</html>
+}
