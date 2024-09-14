@@ -8,12 +8,19 @@ export function coinChangeController(req){
     
     try{
         IllegalInputValidation(arr);
-        onlyIntListValidation(arr);
         IllegalInputValidation(X);
-        OnlyIntValueValidation(X);
+       
 
-        const results = calculateCoinChange(X, arr);
+        const validArr = arr.split(",").map(Number);
+        const validX = Number(X)
 
+
+        onlyIntListValidation(validArr);
+        OnlyIntValueValidation(validX);
+
+
+        const results = calculateCoinChange(validX, validArr);
+        
         view.generateResults(results);
         
 

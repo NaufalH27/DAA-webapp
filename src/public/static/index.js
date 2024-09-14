@@ -34,17 +34,18 @@ const router = async() => {
         const listInput = document.getElementById("listInput").value;
         const valueInput = document.getElementById("valueInput").value;      
 
-        console.log("List Input:", listInput);
-        console.log("Value Input:", valueInput);
-
         const req = {
                 body : { 
-                        X : Number(valueInput),
-                        arr : listInput.split(",").map(Number),
+                        X : valueInput,
+                        arr : listInput,
                         view : view,
-                    }
-        } 
+                    }} 
+        try{
             coinChangeController(req);
+        }catch (e){
+            document.getElementById("errorMessage").innerHTML = e;
+        }
+
 
         }, false);
 

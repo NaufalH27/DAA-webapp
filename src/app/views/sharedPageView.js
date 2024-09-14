@@ -20,13 +20,13 @@ export default class sharedPageView extends abstractView{
                   <h1>INPUT :</h1>
                   <div class="form-container list">  
                     <form id="listForm"> 
-                        <p>List :</p>
+                        <p>List : </p>
                         <input type="text" id="listInput" placeholder="20, 5, 8, 10">
                     </form>
                 </div>
                 <div class="form-container value">  
                     <form id="valueForm">
-                        <p>Value :</p>
+                        <p>Value : </p>
                         <input type="text" id="valueInput" placeholder="87">
                     </form>
                 </div>
@@ -43,7 +43,7 @@ export default class sharedPageView extends abstractView{
         `
     }
     generateResults(result){
-        console.log(result);
+        document.getElementById("resultsContainer").innerHTML = result;
     }
     
 }

@@ -3,6 +3,7 @@ function onlyIntListValidation(list) {
         if (element === 0){
             throw new Error("tidak boleh ada angka 0");
         }
+
         if (element === null || element === undefined || Number.isNaN(element) || !Number.isInteger(element)) {
             throw new Error("Input \"list\" hanya boleh terdiri dari list integer yang di pisah oleh koma");
         }
@@ -11,7 +12,7 @@ function onlyIntListValidation(list) {
 
 function OnlyIntValueValidation(input){
     if (!Number.isInteger(input)) {
-        throw new Error("Input \"Value\" must be an integer");
+        throw new Error("Input \"Value\" harus integer");
     }
 }
 
