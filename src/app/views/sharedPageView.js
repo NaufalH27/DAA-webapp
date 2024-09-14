@@ -9,7 +9,7 @@ export default class sharedPageView extends abstractView{
 
     async getHtml(){
         return  `
-          <div class="input-container">
+        <div class="input-container">
                 <div class="content-title page-title">
                     <h1 class="content-title">${this.algorithmTitle}</h1>
                 </div>
@@ -19,26 +19,31 @@ export default class sharedPageView extends abstractView{
                 <div class="input-field">
                   <h1>INPUT :</h1>
                   <div class="form-container list">  
-                    <form> <p>List :</p>
-                      <input type="text" placeholder="20, 5, 8, 10">
-                  </form>
+                    <form id="listForm"> 
+                        <p>List :</p>
+                        <input type="text" id="listInput" placeholder="20, 5, 8, 10">
+                    </form>
                 </div>
-                  <div class="form-container value">  
-                    <form><p>Value :</p>
-                      <input type="text" placeholder="87">
-                  </form>
-                  </div>
+                <div class="form-container value">  
+                    <form id="valueForm">
+                        <p>Value :</p>
+                        <input type="text" id="valueInput" placeholder="87">
+                    </form>
+                </div>
+                <h5 class="error-message" id="errorMessage"></h5>
                   <div class="button-container calculate">
                     <section>
-                      <a class="button" type="submit" >Calculate</a>
+                      <a class="button" id="submitButton" href=#>Calculate</a>
                   </section>
                   </div>
                 </div> 
             </div>
             <div id="resultsContainer"></div>
-           
         
         `
+    }
+    generateResults(result){
+        console.log(result);
     }
     
 }

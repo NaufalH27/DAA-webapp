@@ -1,18 +1,6 @@
-import { IllegalInputValidation, onlyIntListValidation, OnlyIntValueValidation } from "../middleware/validation.js"
 
 
-export function calculateCoinChange(req){
-
-    const { X, arr } = req.body;
-    
-    try{
-        IllegalInputValidation(X);
-        IllegalInputValidation(arr);
-        OnlyIntValueValidation(X);
-        onlyIntListValidation(arr);
-    }catch(e){
-        throw new Error(e);
-    }
+export function calculateCoinChange(X, arr){
 
     // Urutkan denominasi koin dari terbesar ke terkecil
     arr.sort((a,b) => b - a);
@@ -38,7 +26,3 @@ export function calculateCoinChange(req){
     
     return result;
 }
-
-
-
-

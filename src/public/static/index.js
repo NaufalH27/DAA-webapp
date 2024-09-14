@@ -1,7 +1,8 @@
-import home from "../views/homeView.js";
-import coinChange from "../views/coinChangeView.js";
-import twentySolver from "../views/twentySolverView.js";
-import pageNotFound from "../views/pageNotFoundView.js";
+import home from "../app/views/homeView.js";
+import coinChange from "../app/views/coinChangeView.js";
+import twentySolver from "../app/views/twentySolverView.js";
+import pageNotFound from "../app/views/pageNotFoundView.js";
+import { coinChangeController } from "../app/controllers/coinChangeController.js";
 
 
 const NavigateTo = url => {
@@ -27,19 +28,26 @@ const router = async() => {
     const view = new matchedRoute.view();
     document.querySelector("#app").innerHTML = await view.getHtml();
 
-
-    document.addEventListener("DOMContentLoaded", () => {
-        const submitButton = document.getElementById("submitButton");
+    const el = document.getElementById('submitButton');
     
-        submitButton.addEventListener("click", event => {
-            event.preventDefault();
-            const listInput = document.getElementById("listInput").value;
-            const valueInput = document.getElementById("valueInput").value;
-            
-            
-            
-        });
-    })
+    el?.addEventListener('click', action => {
+        const listInput = document.getElementById("listInput").value;
+        const valueInput = document.getElementById("valueInput").value;      
+
+        console.log("List Input:", listInput);
+        console.log("Value Input:", valueInput);
+
+        const req = {
+                body : { 
+                        X : Number(valueInput),
+                        arr : listInput.split(",").map(Number),
+                        view : view,
+                    }
+        } 
+            coinChangeController(req);
+
+        }, false);
+
 };
 
 
@@ -53,7 +61,4 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
 });
 window.addEventListener("popstate", router);
-
-
-
 
