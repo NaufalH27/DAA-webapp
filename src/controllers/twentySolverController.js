@@ -1,3 +1,3 @@
-export default function twentySolverController(X, arr){
+export function calculateTwentySolver(X, arr){
     
 }

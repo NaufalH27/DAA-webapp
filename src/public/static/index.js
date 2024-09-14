@@ -1,7 +1,8 @@
-import home from "../../views/homeView.js"
-import coinChange from "../../views/coinChangeView.js"
-import twentySolver from "../../views/twentySolverView.js";
-import pageNotFound from "../../views/pageNotFoundView.js";
+import home from "../views/homeView.js";
+import coinChange from "../views/coinChangeView.js";
+import twentySolver from "../views/twentySolverView.js";
+import pageNotFound from "../views/pageNotFoundView.js";
+
 
 const NavigateTo = url => {
     history.pushState(null, null, url);
@@ -25,7 +26,22 @@ const router = async() => {
     
     const view = new matchedRoute.view();
     document.querySelector("#app").innerHTML = await view.getHtml();
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+        const submitButton = document.getElementById("submitButton");
+    
+        submitButton.addEventListener("click", event => {
+            event.preventDefault();
+            const listInput = document.getElementById("listInput").value;
+            const valueInput = document.getElementById("valueInput").value;
+            
+            
+            
+        });
+    })
 };
+
 
 document.addEventListener("DOMContentLoaded", () => {
     document.body.addEventListener("click", e => {
@@ -37,4 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     router();
 });
 window.addEventListener("popstate", router);
+
+
+
 

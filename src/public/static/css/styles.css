@@ -14,7 +14,7 @@ body {
 .nav-container {
 	margin: 0 auto;
     overflow: hidden;
-    height: 70px;
+    max-height: 70px;
 }
 
 header {
@@ -198,6 +198,7 @@ button-container .span{
 .button:hover, .button:focus, .button:active {
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
     transform: scale(1.1);
+    
 }
 
 .first-button:hover + .first-description {
@@ -314,7 +315,10 @@ main .input-container{
     margin-left: 0px;
 }
 
-
+.error-message{
+    color:#FF6666;
+    margin-left: 16px;
+}
 
 
 
@@ -322,4 +326,5 @@ main .input-container{
     .web-explanation{
         width: 100%;
     }
+    
 }

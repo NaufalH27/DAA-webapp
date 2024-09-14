@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/static/css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/dompurify@2.3.4/dist/purify.min.js"></script>
     <title>Desain Analisis Algoritma</title>
 </head>
 <body>
@@ -23,40 +24,47 @@
       </header>
 
         <main>
-            <div class="main-container" id="app" >
+            <div class="main-container" id="app">
               <!-- <div class="input-container">
                 <div class="content-title page-title">
-                    <h1 class="content-title">Coin Change</h1>
+                    <h1 class="content-title">${this.algorithmTitle}</h1>
                 </div>
                 <div>
-                  <h4>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum ipsum elit, quis ullamcorper augue varius quis. Nullam non nisl eleifend, euismod sapien sit amet, luctus nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur venenatis mauris eget fringilla ultrices. Aliquam ullamcorper laoreet erat, a eleifend nunc rhoncus nec. Donec malesuada aliquet volutpat. Fusce sed orci ipsum. Vestibulum sit amet nisl at ante dictum laoreet. Cras suscipit maximus ante, at condimentum orci pretium vitae.</h4>
+                  <h4>${this.algorithmDescription}</h4>
                 </div>
                 <div class="input-field">
                   <h1>INPUT :</h1>
                   <div class="form-container list">  
-                    <form> <p>List :</p>
-                      <input type="text" placeholder="20, 5, 8, 10">
-                  </form>
+                    <form id="listForm"> 
+                        <p>List :</p>
+                        <input type="text" id="listInput" placeholder="20, 5, 8, 10">
+                    </form>
                 </div>
-                  <div class="form-container value">  
-                    <form><p>Value :</p>
-                      <input type="text" placeholder="87">
-                  </form>
-                  </div>
+                <div class="form-container value">  
+                    <form id="valueForm">
+                        <p>Value :</p>
+                        <input type="text" id="valueInput" placeholder="87">
+                    </form>
+                </div>
+                <h5 class="error-message" id="errorMessage"></h5>
                   <div class="button-container calculate">
                     <section>
-                      <a class="button">Calculate</a>
+                      <a class="button" id="submitButton" href=#>Calculate</a>
                   </section>
                   </div>
                 </div> 
-            </div> -->
+            </div>
+            <div id="resultsContainer"></div>
+           
              
             </div>
-        </main>
+        </main> -->
 
 
-        <script type="module" src="static/router.js"></script>
+        <script type="module" src="static/index.js"></script>
     
+   
+
 
 </body>
 </html>
