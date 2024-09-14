@@ -36,7 +36,7 @@ export default class extends abstractView {
                     </section> 
                     <br>
                     <br>
-                    <h6>by:<br>- Naufal Hisyam Muzakki (L0123106)<br>- Mukhlis abdurrahman (L0123100)  </h6>                       
+                    <h6>by:<br>- Naufal Hisyam Muzakki (L0123106)<br>- Mukhlish Abdurrahman (L0123100)  </h6>                       
                 </div>
             </div>
             <div class ="main-image">
