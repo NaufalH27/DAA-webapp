@@ -325,6 +325,10 @@ main .input-container{
 @media screen and (max-width: 950px) {
     .web-explanation{
         width: 100%;
+        padding-left: 10px;
+    }
+    .main-image img{
+        max-width: 80%;
     }
     
 }

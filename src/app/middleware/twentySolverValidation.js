@@ -1,4 +1,4 @@
-import { blankInputValidation, IllegalInputValidation, onlyIntListValidation } from "./validationUtils.js"
+import { blankInputValidation, IllegalInputValidation, maximumListValidation, onlyIntListValidation } from "./validationUtils.js"
 
 export function validateTwentySolverInput(req){
     const { arr } = req.body;
@@ -10,6 +10,7 @@ export function validateTwentySolverInput(req){
         const validArr = arr.split(",").map(Number);
 
         onlyIntListValidation(validArr);
+        maximumListValidation(validArr, 4);
     }catch(e){
         throw e;
     }

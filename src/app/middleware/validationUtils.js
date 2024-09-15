@@ -24,11 +24,16 @@ function IllegalInputValidation(input){
     }
 }
 
-function blankInputValidation(list){
-    if (list === ""){
+function blankInputValidation(input){
+    if (input === ""){
         throw Error("Input \"list\" dan \"Value\" tidak boleh kososng");
     }
 }
 
+function maximumListValidation(list, maxParam){
+    if (list.length > maxParam){
+        throw Error(`Input \"List\" tidak boleh lebih dari ${maxParam}`)
+    }
+}
 
-export { onlyIntListValidation, OnlyIntValueValidation, blankInputValidation, IllegalInputValidation}
+export { onlyIntListValidation, OnlyIntValueValidation, blankInputValidation, IllegalInputValidation, maximumListValidation}
