@@ -18,18 +18,7 @@ export default class sharedPageView extends abstractView{
                 </div>
                 <div class="input-field">
                   <h1>INPUT :</h1>
-                  <div class="form-container list">  
-                    <form id="listForm"> 
-                        <p>List : </p>
-                        <input type="text" id="listInput" placeholder="20, 5, 8, 10">
-                    </form>
-                </div>
-                <div class="form-container value">  
-                    <form id="valueForm">
-                        <p>Value : </p>
-                        <input type="text" id="valueInput" placeholder="87">
-                    </form>
-                </div>
+                 ${this.inputField ? this.inputField : ""}
                 <h5 class="error-message" id="errorMessage"></h5>
                   <div class="button-container calculate">
                     <section>
@@ -42,9 +31,11 @@ export default class sharedPageView extends abstractView{
         
         `
     }
-    generateResults(result){
-        document.getElementById("resultsContainer").innerHTML = result;
+
+    setInputField(inputFieldHtml){
+        this.inputField = inputFieldHtml;
     }
+    
     
 }
 

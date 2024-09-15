@@ -1,36 +1,20 @@
-import { IllegalInputValidation, onlyIntListValidation, OnlyIntValueValidation } from "../middleware/validation.js"
+import { validateCoinChangeInput } from "../middleware/coinChangeValidation.js";
 import { calculateCoinChange } from "../models/coinChangeModel.js";
 
 
-export function coinChangeController(req){
+export function coinChangeController(req, view){
+    validateCoinChangeInput(req)
 
-    const { X, arr, view } = req.body;
+    //if validation pass
+    const { X, arr } = req.body;
+
+    const validArr = arr.split(",").map(Number);
+    const validX = Number(X)
+
+    const results = calculateCoinChange(validX, validArr);
     
-    try{
-        IllegalInputValidation(arr);
-        IllegalInputValidation(X);
-       
+    view.generateResults(results);
 
-        const validArr = arr.split(",").map(Number);
-        const validX = Number(X)
-
-
-        onlyIntListValidation(validArr);
-        OnlyIntValueValidation(validX);
-
-
-        const results = calculateCoinChange(validX, validArr);
-        
-        view.generateResults(results);
-        
-
-    }catch(e){
-        console.log(e)
-        return e
-        
-    }
-
-    
 }
 
 

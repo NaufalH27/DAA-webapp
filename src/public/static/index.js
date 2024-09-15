@@ -3,6 +3,7 @@ import coinChange from "../app/views/coinChangeView.js";
 import twentySolver from "../app/views/twentySolverView.js";
 import pageNotFound from "../app/views/pageNotFoundView.js";
 import { coinChangeController } from "../app/controllers/coinChangeController.js";
+import { twentySolverController } from "../app/controllers/twentySolverController.js";
 
 
 const NavigateTo = url => {
@@ -31,23 +32,14 @@ const router = async() => {
     const el = document.getElementById('submitButton');
     
     el?.addEventListener('click', action => {
-        const listInput = document.getElementById("listInput").value;
-        const valueInput = document.getElementById("valueInput").value;      
-
-        const req = {
-                body : { 
-                        X : valueInput,
-                        arr : listInput,
-                        view : view,
-                    }} 
+        action.preventDefault();
         try{
-            coinChangeController(req);
+            if (view instanceof coinChange){ coinChangeController(view.getInput(), view); }
+            else if (view instanceof twentySolver) { twentySolverController(view.getInput(), view); }
         }catch (e){
             document.getElementById("errorMessage").innerHTML = e;
         }
-
-
-        }, false);
+    }, false);
 
 };
 
@@ -61,5 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
     router();
 });
+
 window.addEventListener("popstate", router);
 
