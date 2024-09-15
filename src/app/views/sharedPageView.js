@@ -35,6 +35,10 @@ export default class sharedPageView extends abstractView{
     setInputField(inputFieldHtml){
         this.inputField = inputFieldHtml;
     }
+
+    generateResults(results){
+        console.log(results);
+    }
     
     
 }
