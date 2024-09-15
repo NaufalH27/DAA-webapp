@@ -2,8 +2,6 @@ import home from "../app/views/homeView.js";
 import coinChange from "../app/views/coinChangeView.js";
 import twentySolver from "../app/views/twentySolverView.js";
 import pageNotFound from "../app/views/pageNotFoundView.js";
-import { coinChangeController } from "../app/controllers/coinChangeController.js";
-import { twentySolverController } from "../app/controllers/twentySolverController.js";
 
 
 const NavigateTo = url => {
@@ -25,21 +23,9 @@ const router = async() => {
     };
 
     const matchedRoute = matchRoute();
-    
     const view = new matchedRoute.view();
     document.querySelector("#app").innerHTML = await view.getHtml();
-
-    const el = document.getElementById('submitButton');
-    
-    el?.addEventListener('click', action => {
-        action.preventDefault();
-        try{
-            if (view instanceof coinChange){ coinChangeController(view.getInput(), view); }
-            else if (view instanceof twentySolver) { twentySolverController(view.getInput(), view); }
-        }catch (e){
-            document.getElementById("errorMessage").innerHTML = e;
-        }
-    }, false);
+    view.eventListener();
 
 };
 

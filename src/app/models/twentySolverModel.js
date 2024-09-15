@@ -47,8 +47,8 @@ export function calculateTwentySolver(numbers) {
 
     // Jika tidak ada solusi yang ditemukan, beri pesan bahwa tidak ada solusi
     if (!foundSolutions) {
-        return "Operasi ini tidak memungkinkan.";
+        return { error : "Operasi ini tidak memungkinkan." };
     } else {
-        return solutions; // Kembalikan semua solusi yang ditemukan
+        return {results : solutions}; // Kembalikan semua solusi yang ditemukan
     }
 }

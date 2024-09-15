@@ -1,4 +1,6 @@
 import sharedPageView from "./sharedPageView.js";
+import { coinChangeController } from "../controllers/coinChangeController.js";
+
 
 export default class extends sharedPageView {
     constructor(){
@@ -11,7 +13,7 @@ export default class extends sharedPageView {
           `
             <div class="form-container list">  
                 <form id="listForm"> 
-                    <p>List : </p>
+                    <p>Coin <br>                                                                                                                                                                                         List : </p>
                     <input type="text" id="listInput" placeholder="20, 5, 8, 10">
                 </form>
             </div>
@@ -23,6 +25,7 @@ export default class extends sharedPageView {
             </div>
           `
         )
+        this.setController(coinChangeController)
     }
 
     getInput(){
@@ -35,9 +38,48 @@ export default class extends sharedPageView {
                 }} 
     } 
 
-    
 
-  }
+    generateResults(results, valueTotal, CoinList) {
+        const resultBox = document.getElementById("resultBox");
+        
+        let resultHtml = '';
+        if(results.error){
+            resultHtml += `<h3>${results.error}</h3>`
+        }else{
+            for (let [key, value] of Object.entries(results.results)) {
+                resultHtml += `
+                <tr>
+                  <td>${key}</td>
+                  <td>${value}</td>
+                </tr>`
+              }
+              resultHtml =`
+                    <table>
+                        <thead>
+                            <tr>
+                            <th>Coin</th>
+                            <th>Total</th>
+                            </tr>
+                        </thead >
+                    <tbody>
+                        ${resultHtml}
+                    </tbody>
+                    </table>`    
+        }       
+  
+        resultBox.innerHTML = `<div class="calculation-result">
+                                  <h2>Coin List : [${CoinList}]</h2>
+                                  <h2>Value Total : ${valueTotal}</h2>
+                                  <br>
+                                  <h3>Hasil Kalkulasi :</h3>
+                                      ${resultHtml}
+                              </div>`             
+      }
+
+   
+  
+    }
+    
 
 
 

@@ -23,5 +23,5 @@ export function calculateCoinChange(X, arr){
         return { error: "Tidak bisa memberikan kembalian dengan tepat"};
     }
     
-    return result;
+    return {results : result };
 }

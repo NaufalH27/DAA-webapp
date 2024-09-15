@@ -11,4 +11,8 @@ export default class{
         return  "";
     }
 
+    eventListener(){
+        
+    }
+
 }

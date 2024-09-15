@@ -4,13 +4,13 @@ import { calculateTwentySolver } from "../models/twentySolverModel.js";
 export function twentySolverController(req, view){
     validateTwentySolverInput(req);
 
+    view.renderResultContainer();
+
     //if validation pass
     const { arr } = req.body;
 
-    const validArr = arr.split(",").map(Number);
+    const results = calculateTwentySolver(arr);
 
-    const results = calculateTwentySolver(validArr);
-
-    view.generateResults(results);
+    view.generateResults(results, arr);
 
 }

@@ -8,7 +8,7 @@ body {
 	font-family: 'Work Sans', sans-serif;
 	font-weight: 800;
     background: rgb(31, 31, 31);
-
+    overflow-x: hidden;
 }
 
 .nav-container {
@@ -111,8 +111,65 @@ nav a:hover::before {
 
 
 main {
+    
     font-family: "Source Sans Pro", sans-serif;
     color: #e2e2e2;
+    transform-origin: top left;
+}
+
+.main-container {  
+    padding-left: 10px;
+    padding-right: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.calculator {
+    flex: 1;
+}
+
+
+.calculator-content{
+    max-width: 1500px; 
+    margin: 0 auto;
+    box-sizing: border-box;
+    min-width: 320px;
+    background: rgb(31, 31, 31);
+    transform: scale(0.9); 
+    /* border: red solid 20px; */
+}
+
+.result-container{
+    flex:1;
+    padding: 20px;
+    min-width: 300px;
+    min-height: 400px;
+
+}
+.result-box {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(34, 34, 34);;
+    border: solid 2px rgb(21, 21, 21);
+    border-radius: 16px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.result-box .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 24px;
+    padding-right: 24px;
+    background: #141414;
+    box-shadow: 0 4px 8px rgba(36, 36, 36, 0.3);
+}
+
+
+.landing-content{
     max-width: 1500px; 
     margin: 0 auto; 
     box-sizing: border-box;
@@ -120,21 +177,18 @@ main {
     transform: scale(0.9); 
 }
 
-.main-container {
+.landing-container{
     padding-left: 10px;
     padding-right: 10px;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-between;
-    
-   
 }
 
 .web-explanation{
     width: 35%;
     padding: 50px;
     padding-top: 20px;
-
 }
 
 
@@ -322,13 +376,127 @@ main .input-container{
 
 
 
+
 @media screen and (max-width: 950px) {
+
+
     .web-explanation{
         width: 100%;
-        padding-left: 10px;
+        padding-left: 0px;
     }
+
     .main-image img{
         max-width: 80%;
     }
     
+}
+
+
+@media screen and (max-width: 420px) {
+    main {
+        transform: scale(0.8);
+        
+    }
+}
+
+.calculation-result{
+    padding-left: 50px;
+    padding-top: 10px;
+}
+
+table {
+    margin-left: 10px;
+    border: solid 3px rgb(28, 27, 27);
+    overflow: hidden;
+    border-radius: 16px;
+    background-color: #2a2a2a;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    padding: 12px 20px;
+    text-align: left;
+    border-bottom: 1px solid #3a3a3a;
+}
+th {
+    background-color: #3a3a3a;
+    font-weight: bold;
+}
+tr:last-child td {
+    border-bottom: none;
+}
+tr:hover {
+    background-color: #333333;
+}
+
+
+.first {
+    right : -100%;
+    position: absolute;
+}
+
+.hidden {
+    animation: slideOut 1.5s ease forwards;
+    position: absolute;
+    right: -100%;
+}
+
+.visible {
+    animation: slideIn 0.75s ease forwards;
+    position: relative;
+}
+
+@keyframes slideIn {
+    0% {
+        right: -200%;
+    }
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        right: 0%;
+    }
+    100% {
+        right: -200%;
+    }
+}
+
+
+.x-button {
+    float: right;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.x-button:hover {
+    transform: scale(1.1);
+}
+
+.x-button:active {
+    transform: scale(0.95);
+}
+
+.x-button::before,
+.x-button::after {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.x-button::before {
+    transform: rotate(45deg);
+}
+
+.x-button::after {
+    transform: rotate(-45deg);
 }

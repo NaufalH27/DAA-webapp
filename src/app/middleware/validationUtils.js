@@ -5,20 +5,20 @@ function onlyIntListValidation(list) {
         }
 
         if (element === null || element === undefined || Number.isNaN(element) || !Number.isInteger(element)) {
-            throw Error("Input \"list\" hanya boleh terdiri dari list integer yang di pisah oleh koma");
+            throw Error("Input hanya boleh terdiri integer");
         }
     }
 }
 
 function OnlyIntValueValidation(input){
     if (!Number.isInteger(input)) {
-        throw Error("Input \"Value\" harus integer");
+        throw Error("Input harus integer");
     }
 }
 
 function IllegalInputValidation(input){
     let cleanInput = DOMPurify.sanitize(input);
-    console.log(cleanInput);
+    console.log(cleanInput)
     if ((input !== cleanInput)) {
         throw Error("terdeteksi input illegal");
     }
@@ -26,14 +26,14 @@ function IllegalInputValidation(input){
 
 function blankInputValidation(input){
     if (input === ""){
-        throw Error("Input \"list\" dan \"Value\" tidak boleh kososng");
+        throw Error("Input tidak boleh kososng");
     }
 }
 
-function maximumListValidation(list, maxParam){
-    if (list.length > maxParam){
-        throw Error(`Input \"List\" tidak boleh lebih dari ${maxParam}`)
+function sizeListValidation(list, size){
+    if (list.length !== size){
+        throw Error(`Input \"List\" tidak boleh ada yang kosong`)
     }
 }
 
-export { onlyIntListValidation, OnlyIntValueValidation, blankInputValidation, IllegalInputValidation, maximumListValidation}
+export { onlyIntListValidation, OnlyIntValueValidation, blankInputValidation, IllegalInputValidation, sizeListValidation}
