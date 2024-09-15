@@ -1,28 +1,49 @@
-export function calculateTwentySolver(numbers, target){
-    // Daftar operator yang akan digunakan dalam brute force
+export function calculateTwentySolver(numbers) {
     const operators = ['+', '-', '*', '/'];
-
-    // Fungsi untuk mencari semua solusi
+    const target = 20;
     let solutions = [];
     let foundSolutions = false;
 
-    // Brute force kombinasi operator antara angka-angka
-    for (let i = 0; i < operators,length; i++) {
-        for (let j = 0; j < operators,length; j++) {
-            for (let k = 0; k < operators,length; k++) {
-                const expression = '${numbers[0]} ${operators[i]} ${numbers[1]} ${operators[j]} ${numbers[2]} ${operators[k]} ${numbers[3]}';
+    // Fungsi untuk membangkitkan semua kombinasi operator
+    function bruteForceOperators(numbers, operators, target) {
+        const [a, b, c, d] = numbers;
 
-                try {
-                    if (eval(expression) === target) {
-                        solutions.push('${expression} = ${target}');
-                        foundSolutions = true;
-                    }
-                } catch (e) {
-                    // Mengabaikan kesalahan pembagian dengan nol
+        // Loop untuk setiap kombinasi operator
+        for (let i = 0; i < operators.length; i++) {
+            for (let j = 0; j < operators.length; j++) {
+                for (let k = 0; k < operators.length; k++) {
+
+                    // Array untuk menyimpan berbagai ekspresi dengan tanda kurung
+                    const expressions = [];
+
+                    // Membuat ekspresi dinamis dengan berbagai cara menempatkan tanda kurung
+                    expressions.push(`${a} ${operators[i]} ${b} ${operators[j]} ${c} ${operators[k]} ${d}`);
+                    expressions.push(`(${a} ${operators[i]} ${b}) ${operators[j]} (${c} ${operators[k]} ${d})`);
+                    expressions.push(`(${a} ${operators[i]} (${b} ${operators[j]} ${c})) ${operators[k]} ${d}`);
+                    expressions.push(`(${a} ${operators[i]} ${b}) ${operators[j]} ${c} ${operators[k]} ${d}`);
+                    expressions.push(`${a} ${operators[i]} (${b} ${operators[j]} (${c} ${operators[k]} ${d}))`);
+                    expressions.push(`${a} ${operators[i]} ((${b} ${operators[j]} ${c}) ${operators[k]} ${d})`);
+                    expressions.push(`((${a} ${operators[i]} ${b}) ${operators[j]} ${c}) ${operators[k]} ${d}`);
+                    expressions.push(`(${a} ${operators[i]} ${b} ${operators[j]} (${c} ${operators[k]} ${d}))`);
+
+                    // Coba evaluasi setiap ekspresi menggunakan eval
+                    expressions.forEach(expression => {
+                        try {
+                            if (eval(expression) === target) {
+                                solutions.push(`${expression} = ${target}`);
+                                foundSolutions = true;
+                            }
+                        } catch (e) {
+                            // Abaikan kesalahan seperti pembagian dengan nol
+                        }
+                    });
                 }
             }
         }
     }
+
+    // Panggil fungsi brute force untuk mencari semua kombinasi
+    bruteForceOperators(numbers, operators, target);
 
     // Jika tidak ada solusi yang ditemukan, beri pesan bahwa tidak ada solusi
     if (!foundSolutions) {
@@ -30,5 +51,4 @@ export function calculateTwentySolver(numbers, target){
     } else {
         return solutions; // Kembalikan semua solusi yang ditemukan
     }
-
 }
