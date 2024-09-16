@@ -77,9 +77,11 @@ export default class extends sharedPageView {
                       </table>`         
       }
 
+      const splittedListData = listData.join(', ')
+
 
       resultBox.innerHTML = `<div class="calculation-result">
-                              <h2> Number List : [${listData}]</h2>
+                              <h2> Number List : [${splittedListData}]</h2>
                               <br>
                               <h3>Hasil Kalkulasi: :</h3>
                               <div class="calculation-container">

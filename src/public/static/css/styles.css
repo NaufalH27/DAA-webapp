@@ -183,7 +183,6 @@ main {
 
 .calculation-result{
     min-height: 400px;
-    max-height: 600px;
     display: flex;
     flex-direction: column;
     padding-left: 50px;
