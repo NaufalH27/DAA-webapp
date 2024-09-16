@@ -44,6 +44,7 @@ export default class extends sharedPageView {
 
     generateResults(results, listData) {
       const resultBox = document.getElementById("resultBox");
+      resultBox.innerHTML = '';
       setTimeout(() => {
       let resultHtml = '';
 
