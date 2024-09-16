@@ -6,7 +6,13 @@ export default class extends sharedPageView {
     constructor(){
         super(
           "20 - Solver",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum ipsum elit, quis ullamcorper augue varius quis. Nullam non nisl eleifend, euismod sapien sit amet, luctus nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur venenatis mauris eget fringilla ultrices. Aliquam ullamcorper laoreet erat, a eleifend nunc rhoncus nec. Donec malesuada aliquet volutpat. Fusce sed orci ipsum. Vestibulum sit amet nisl at ante dictum laoreet. Cras suscipit maximus ante, at condimentum orci pretium vitae.",
+          `20 - Solver adalah kalkulasi yang mencari kombinasi dari empat angka dengan 
+          operator aritmatika (+, -, *, /) untuk menghasilkan nilai 20. 
+          Algoritma ini menguji berbagai kombinasi operator dan penempatan tanda kurung 
+          untuk melihat apakah angka-angka tersebut dapat dioperasikan sehingga hasil akhirnya adalah 20. 
+          Jika ada solusi yang ditemukan, maka akan menampilkan daftar ekspresi yang valid. 
+          Jika tidak, maka akan menampilkan pesan error yang menyatakan bahwa operasi tersebut 
+          tidak memungkinkan. Input 'List' berupa Angka (bilangan bulat). `,
           false
         );
         this.setTitle("Twenty Solver");

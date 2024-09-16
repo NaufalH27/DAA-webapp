@@ -6,7 +6,15 @@ export default class extends sharedPageView {
     constructor(){
         super(
           "Coin Changes",
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec elementum ipsum elit, quis ullamcorper augue varius quis. Nullam non nisl eleifend, euismod sapien sit amet, luctus nibh. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur venenatis mauris eget fringilla ultrices. Aliquam ullamcorper laoreet erat, a eleifend nunc rhoncus nec. Donec malesuada aliquet volutpat. Fusce sed orci ipsum. Vestibulum sit amet nisl at ante dictum laoreet. Cras suscipit maximus ante, at condimentum orci pretium vitae."
+          `Coin Changes adalah kalkulasi menggunakan algoritma greedy yang digunakan untuk 
+          menentukan kombinasi koin yang tepat untuk mencapai jumlah tertentu menggunakan 
+          denominasi koin yang diinput. 
+          Algoritma greedy mengurutkan denominasi koin dari yang terbesar hingga terkecil, 
+          lalu menghitung berapa banyak koin dari setiap denominasi yang dibutuhkan. 
+          Jika nilai tersebut tidak dapat dipecah dengan koin yang tersedia, 
+          fungsi akan mengembalikan pesan error. 
+          Input 'Coin List' berupa angka (bilangan bulat) yang merepresentasikan jumlah uang yang 
+          ingin dipecah menjadi koin. Input 'Value' berupa bilangan bulat yang berisi denominasi koin. `
         );
         this.setTitle("Coin Changes");
         this.setInputField(
@@ -14,7 +22,8 @@ export default class extends sharedPageView {
           <div class="cc-input input">
             <div class="form-container list">  
                 <form id="listForm"> 
-                    <p>Coin <br>                                                                                                                                                                                         List : </p>
+                    <p>Coin <br>                                                                                                                                                                                         
+                    List : </p>
                     <input type="text" id="listInput" placeholder="20, 5, 8, 10">
                 </form>
             </div>
