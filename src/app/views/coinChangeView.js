@@ -29,7 +29,7 @@ export default class extends sharedPageView {
             </div>
             <div class="form-container value">  
                 <form id="valueForm">
-                    <p>Value : </p>
+                    <p>Target : </p>
                     <input type="text" id="valueInput" placeholder="87">
                 </form>
             </div>
@@ -91,20 +91,20 @@ export default class extends sharedPageView {
                     logMassage += `<p>${message}</p>` 
                 }
                 logs +=`
-                    <div class="log">${logMassage}</div>
+                    <div class="log"><h3><br>${logMassage}</div>
                 `
             }
             const coinList = CoinList.join(', ')
       
             resultBox.innerHTML = `<div class="calculation-result">
                                       <h2>Sorted Coin List : [${coinList}]</h2>
-                                      <h2>Value Total : ${valueTotal}</h2>
+                                      <h2>Target : ${valueTotal}</h2>
                                       <h3>Hasil Kalkulasi :</h3>
                                       <div class="calculation-container">
                                           ${resultHtml}
                                       </div>
                                       <div class="result-log">
-                                      <h3>log Alogritma:</h3>
+                                      <h1>log Alogritma:</h1>
                                         ${logs}
                                       </div>
                                   </div>`    

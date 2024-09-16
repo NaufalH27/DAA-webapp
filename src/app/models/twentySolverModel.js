@@ -3,6 +3,9 @@ export function calculateTwentySolver(numbers) {
     const target = 20;
     let solutions = [];
     let foundSolutions = false;
+    let log = [];  
+
+    log.push("Mencari semua kombinasi operasi yang ada dengan Brute force")
 
     // Fungsi untuk menghasilkan semua permutasi dari array
     function generatePermutations(arr) {
@@ -58,13 +61,18 @@ export function calculateTwentySolver(numbers) {
                             .replace('op3', operators[k]);
 
                         try {
+                            let result = eval(expression);
                             // Evaluasi setiap ekspresi yang dihasilkan
-                            if (eval(expression) === target) {
-                                solutions.push(`${expression} = ${target}`);
+                            if (result === target) {
+                                solutions.push(`${expression}`);
                                 foundSolutions = true;
+                                log.push(`${expression} = ${target} <- (OPERASI VALID)`);
+                            } else{
+                                log.push(`${expression} = ${Number.isInteger(result) ? result : result.toFixed(2)} (X)`);
                             }
                         } catch (e) {
                             // Abaikan kesalahan seperti pembagian dengan nol
+                            log.push(`${expression} = ${e.message} (ERR)`);
                         }
                     });
                 }
@@ -76,14 +84,16 @@ export function calculateTwentySolver(numbers) {
     const permutations = generatePermutations(numbers);
 
     // Panggil fungsi brute force untuk setiap permutasi
-    permutations.forEach(permutation => {
+    permutations.forEach((permutation, index) => {
         bruteForceOperators(permutation, operators, target);
     });
 
-    // Jika tidak ada solusi yang ditemukan, beri pesan bahwa tidak ada solusi
+    //Jika tidak ada solusi yang ditemukan, beri pesan bahwa tidak ada solusi
     if (!foundSolutions) {
-        return { error: "Operasi ini tidak memungkinkan." };
+        log.push("No valid solutions found.");
+        return { error: "Operasi ini tidak memungkinkan.", log: log };
     } else {
-        return { results: solutions }; // Kembalikan semua solusi yang ditemukan
+        log.push("Valid solutions found.");
+        return { results: solutions, log: log }; // Kembalikan semua solusi yang ditemukan
     }
 }

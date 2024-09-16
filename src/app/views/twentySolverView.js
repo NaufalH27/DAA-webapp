@@ -55,7 +55,7 @@ export default class extends sharedPageView {
       let resultHtml = '';
 
       if (results.error){
-        resultHtml += `<h3>${results.error}</h3>`
+        resultHtml += `<h4 class="error-message"${results.error}</h4>`
       }
       else{
         for (const element of results.results){
@@ -68,7 +68,7 @@ export default class extends sharedPageView {
                       <table>
                         <thead>
                             <tr>
-                            <th>Operasi</th>
+                            <th>Operasi yang menghasilkan 20</th>
                             </tr>
                         </thead >
                       <tbody>
@@ -76,17 +76,29 @@ export default class extends sharedPageView {
                       </tbody>
                       </table>`         
       }
+      let logs ="";
+      let logMassage ="";
+      for (let log of results.log){
+          logMassage += `<p>${log}</p>` ;
+      }
+      logs +=`
+      <div class="log"><h3>log Alogritma:</h3><br>${logMassage}</div>
+  `;
 
       const splittedListData = listData.join(', ')
 
 
       resultBox.innerHTML = `<div class="calculation-result">
                               <h2> Number List : [${splittedListData}]</h2>
+                              <h2> Target : 20 <h3>
                               <br>
                               <h3>Hasil Kalkulasi: :</h3>
-                              <div class="calculation-container">
-                              ${resultHtml}
-                              <div>
+                             <div class="calculation-container">
+                                ${resultHtml}
+                            </div>
+                            <div class="result-log">
+                                ${logs}
+                            </div>
                           </div>`
 
               },500)

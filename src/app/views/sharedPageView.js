@@ -61,6 +61,22 @@ export default class sharedPageView extends abstractView{
         const removeResultButton = document.getElementById("removeResultContainer");
         const twentySolverInputContainer = document.querySelector(".ts-input")
         const CoinChangeInputContainer = document.querySelector(".cc-input")
+        const burgerIcon = document.getElementById("burger");
+        const menu = document.getElementById('menu');
+
+        burgerIcon?.addEventListener("click", action =>{
+            action.preventDefault();
+            menu.classList.toggle('active');
+        }, false)
+
+        window.addEventListener('resize', ()=>{
+            if (window.innerWidth > 700){
+                if (menu.classList.contains("active")){
+                    menu.classList.toggle('active');
+                }
+            }
+        });
+                
 
        
         submitButton?.addEventListener('click', action => {
@@ -188,9 +204,9 @@ export default class sharedPageView extends abstractView{
             resultContainer.classList.remove('first');
             resultContainer.classList.add('visible');
         }
-        if (windowWidth < 670){
+        if (windowWidth < 700){
             window.scrollTo({
-                top: 670,
+                top: 700,
                 behavior: "smooth"
             });
         }
