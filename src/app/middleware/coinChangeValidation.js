@@ -1,4 +1,4 @@
-import {blankInputValidation, IllegalInputValidation, onlyIntListValidation, OnlyIntValueValidation} from "./validationUtils.js"
+import {blankInputValidation, IllegalInputValidation, onlyIntListValidation, OnlyIntValueValidation, nonZeroValidation} from "./validationUtils.js"
 
 export function validateCoinChangeInput(req){
     const { X, arr } = req.body;
@@ -12,6 +12,7 @@ export function validateCoinChangeInput(req){
         const validArr = arr.split(",").map(Number);
         const validX = Number(X)
 
+        nonZeroValidation(validX)
         onlyIntListValidation(validArr);
         OnlyIntValueValidation(validX);
     }catch(e){

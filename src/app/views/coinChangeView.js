@@ -52,20 +52,21 @@ export default class extends sharedPageView {
 
     generateResults(results, valueTotal, CoinList) {
         const resultBox = document.getElementById("resultBox");
-        resultBox.innerHTML = '';
 
+        resultBox.innerHTML = '';
         setTimeout(() => {
             let resultHtml = '';
             if(results.error){
-                resultHtml += `<h4>${results.error}</h4>`
+                resultHtml += `<h4 class="error-message" id="errorMessage">${results.error}</h4>`
             }else{
-                for (let [key, value] of Object.entries(results.results)) {
-                    resultHtml += `
-                    <tr>
-                      <td>${key}</td>
-                      <td>${value}</td>
-                    </tr>`
-                  }
+                for (let result of results.results) {
+                        resultHtml += `
+                        <tr>
+                        <td>${result.value}</td>
+                        <td>${result.count}</td>
+                        </tr>`
+                    }
+                  
                   resultHtml =`
                         <table>
                             <thead>
@@ -79,15 +80,29 @@ export default class extends sharedPageView {
                         </tbody>
                         </table>`    
             }
+            let logs ="";
+            for (let log of results.log){
+                let logMassage = ``;
+                for (let message of log){
+                    logMassage += `<p>${message}</p>` 
+                }
+                logs +=`
+                    <div class="log">${logMassage}</div>
+                `
+            }
             const coinList = CoinList.join(', ')
       
             resultBox.innerHTML = `<div class="calculation-result">
-                                      <h2>Coin List : [${coinList}]</h2>
+                                      <h2>Sorted Coin List : [${coinList}]</h2>
                                       <h2>Value Total : ${valueTotal}</h2>
                                       <h3>Hasil Kalkulasi :</h3>
                                       <div class="calculation-container">
                                           ${resultHtml}
-                                      <div>
+                                      </div>
+                                      <div class="result-log">
+                                      <h3>log Alogritma:</h3>
+                                        ${logs}
+                                      </div>
                                   </div>`    
                             }, 500);         
       }

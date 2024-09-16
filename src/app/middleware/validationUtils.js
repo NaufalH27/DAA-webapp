@@ -1,7 +1,7 @@
 function onlyIntListValidation(list) {
     for (let element of list) {
         if (element === 0){
-            throw Error("tidak boleh ada angka 0");
+            throw Error("tidak boleh ada element list/angka yang 0 atau kosong");
         }
 
         if (element === null || element === undefined || Number.isNaN(element) || !Number.isInteger(element)) {
@@ -18,7 +18,6 @@ function OnlyIntValueValidation(input){
 
 function IllegalInputValidation(input){
     let cleanInput = DOMPurify.sanitize(input);
-    console.log(cleanInput)
     if ((input !== cleanInput)) {
         throw Error("terdeteksi input illegal");
     }
@@ -26,7 +25,7 @@ function IllegalInputValidation(input){
 
 function blankInputValidation(input){
     if (input === ""){
-        throw Error("Input tidak boleh kososng");
+        throw Error("Input tidak boleh kosong");
     }
 }
 
@@ -36,4 +35,10 @@ function sizeListValidation(list, size){
     }
 }
 
-export { onlyIntListValidation, OnlyIntValueValidation, blankInputValidation, IllegalInputValidation, sizeListValidation}
+function nonZeroValidation(input){
+    if (input === 0){
+        throw Error("Input tidak boleh 0")
+    }
+}
+
+export { onlyIntListValidation, OnlyIntValueValidation, blankInputValidation, IllegalInputValidation, sizeListValidation, nonZeroValidation }
