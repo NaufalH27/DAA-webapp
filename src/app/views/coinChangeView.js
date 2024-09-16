@@ -52,6 +52,10 @@ export default class extends sharedPageView {
 
     generateResults(results, valueTotal, CoinList) {
         const resultBox = document.getElementById("resultBox");
+        const uniqueData = results.results.filter((item, index, self) => 
+            self.findIndex(t => t.value === item.value) === index
+        );
+        
 
         resultBox.innerHTML = '';
         setTimeout(() => {
@@ -59,7 +63,7 @@ export default class extends sharedPageView {
             if(results.error){
                 resultHtml += `<h4 class="error-message" id="errorMessage">${results.error}</h4>`
             }else{
-                for (let result of results.results) {
+                for (let result of uniqueData) {
                         resultHtml += `
                         <tr>
                         <td>${result.value}</td>
