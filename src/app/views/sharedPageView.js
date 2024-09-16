@@ -32,14 +32,15 @@ export default class sharedPageView extends abstractView{
               </div>             
               </div>
             </div>
-            <div class="result-container first" id="resultContainer">           
+            </div>
+            <div class="result-container first dissapear" id="resultContainer">           
                 <div class="result-box">
                 <div class="title"><h1>Results</h1>
                     <div class="x-button" id ="removeResultContainer"></div>
                 </div>
                 <div id="resultBox"></div>
               </div>
-            <div>
+            </div>
         
         `
     }
@@ -54,59 +55,149 @@ export default class sharedPageView extends abstractView{
 
 
     eventListener(){
+        const mainContainer = document.querySelector(".main-container")
         const submitButton = document.getElementById('submitButton');
         const resultContainer = document.getElementById("resultContainer");
         const removeResultButton = document.getElementById("removeResultContainer");
-        const inputs = document.querySelectorAll('input[type="text"]');
+        const twentySolverInputContainer = document.querySelector(".ts-input")
+        const CoinChangeInputContainer = document.querySelector(".cc-input")
 
+       
         submitButton?.addEventListener('click', action => {
             action.preventDefault();
+            
             try{
                 document.getElementById("errorMessage").innerHTML = "";
                 this.controller(this.getInput(), this)
             }catch (e){
-                document.getElementById("errorMessage").innerHTML = e;
+                document.getElementById("errorMessage").innerHTML = "";
+                setTimeout(() => {
+                    document.getElementById("errorMessage").innerHTML = e;   
+                }, 200);
+                
             }
         }, false);
 
         removeResultButton?.addEventListener("click", action => {
+            const parentTop = mainContainer.getBoundingClientRect().top;
+            const childTop = resultContainer.getBoundingClientRect().top + document.querySelector("header").offsetHeight;
+
+            const topDifference = childTop - parentTop;
             action.preventDefault();
+    
+            resultContainer.style.top = `${topDifference}px`
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        
+
             resultContainer.classList.remove("visible");
-            resultContainer.classList.add("hidden")  
+            resultContainer.classList.add("hidden")
+
+            setTimeout(() => {
+                resultContainer.style.top = `0px`
+                resultContainer.classList.remove("appear");
+                resultContainer.classList.add("dissapear");
+            }, 200);
         }, false)
 
-        inputs.forEach((input, index) => {
-            input.addEventListener('keydown', function(event) {
-                if (event.key === 'Enter' || event.key === 'ArrowRight') {
-                    event.preventDefault();
-                    const nextIndex = index + 1;
-                    if (nextIndex < inputs.length) {
-                        inputs[nextIndex].focus();
+        if (twentySolverInputContainer) {
+            const twentySolverInputBox = twentySolverInputContainer.querySelectorAll('input[type="text"]');
+            twentySolverInputBox.forEach((input, index) => {
+                input.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        if (index === twentySolverInputBox.length - 1) {
+                            submitButton?.click(); 
+                        } else {
+                            const nextIndex = index + 1;
+                            if (nextIndex < twentySolverInputBox.length) {
+                                twentySolverInputBox[nextIndex].focus(); 
+                            }
+                        }
+                    } else if (event.key === 'ArrowRight') {
+                        event.preventDefault();
+                        const nextIndex = index + 1;
+                        if (nextIndex < twentySolverInputBox.length) {
+                            twentySolverInputBox[nextIndex].focus();
+                        }
+                    } else if (event.key === 'ArrowLeft') {
+                        event.preventDefault();
+                        const prevIndex = index - 1;
+                        if (prevIndex >= 0) {
+                            twentySolverInputBox[prevIndex].focus();
+                        }
                     }
-                } else if (event.key === 'ArrowLeft') {
-                    event.preventDefault();
-                    const prevIndex = index - 1;
-                    if (prevIndex >= 0) {
-                        inputs[prevIndex].focus();
-                    }
-                }
+                });
             });
-        });
+        }
+
+        if(CoinChangeInputContainer){
+            const CoinChangeInputBox = CoinChangeInputContainer.querySelectorAll('input[type="text"]');
+            const totalInputs = CoinChangeInputBox.length;
+
+            CoinChangeInputBox.forEach((input, index) => {
+                input.addEventListener('keydown', function(event) {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        if (index === CoinChangeInputBox.length - 1) {
+                            submitButton?.click(); 
+                        } else {
+                            const nextIndex = index + 1;
+                            if (nextIndex < CoinChangeInputBox.length) {
+                                CoinChangeInputBox[nextIndex].focus(); 
+                            }
+                        }
+                    } else if (event.key === 'ArrowDown') {
+                        event.preventDefault();
+                        const nextIndex = index + 1;
+                        if (nextIndex < totalInputs) {
+                           CoinChangeInputBox[nextIndex].focus(); 
+                        }
+                    } else if (event.key === 'ArrowUp') {
+                        event.preventDefault();
+                        const prevIndex = index - 1;
+                        if (prevIndex >= 0) {
+                            CoinChangeInputBox[prevIndex].focus();
+                        }
+                    }
+                });
+            });
+        }
+       
     }
 
 
     
     renderResultContainer(){  
         const resultContainer = document.getElementById("resultContainer");
-        if(resultContainer.classList.contains('first')){
-            resultContainer.classList.remove('first');
-            resultContainer.classList.add('visible');
+        const windowWidth = window.innerWidth;
+
+
+        if(resultContainer.classList.contains("dissapear")){
+            resultContainer.classList.remove("dissapear");
+            resultContainer.classList.add("appear");
         }
         if (resultContainer.classList.contains('hidden') ) {
             resultContainer.classList.remove('hidden');
             resultContainer.classList.add('visible');
         }
+        if (resultContainer.classList.contains('first') ) {
+            resultContainer.classList.remove('first');
+            resultContainer.classList.add('visible');
+        }
+        if (windowWidth < 670){
+            window.scrollTo({
+                top: 670,
+                behavior: "smooth"
+            });
+        }
+
+       
     }
+    
 
    
   

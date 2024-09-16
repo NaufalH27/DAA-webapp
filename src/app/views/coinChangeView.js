@@ -11,6 +11,7 @@ export default class extends sharedPageView {
         this.setTitle("Coin Changes");
         this.setInputField(
           `
+          <div class="cc-input input">
             <div class="form-container list">  
                 <form id="listForm"> 
                     <p>Coin <br>                                                                                                                                                                                         List : </p>
@@ -23,6 +24,7 @@ export default class extends sharedPageView {
                     <input type="text" id="valueInput" placeholder="87">
                 </form>
             </div>
+          </div>
           `
         )
         this.setController(coinChangeController)
@@ -41,40 +43,47 @@ export default class extends sharedPageView {
 
     generateResults(results, valueTotal, CoinList) {
         const resultBox = document.getElementById("resultBox");
-        
-        let resultHtml = '';
-        if(results.error){
-            resultHtml += `<h3>${results.error}</h3>`
-        }else{
-            for (let [key, value] of Object.entries(results.results)) {
-                resultHtml += `
-                <tr>
-                  <td>${key}</td>
-                  <td>${value}</td>
-                </tr>`
-              }
-              resultHtml =`
-                    <table>
-                        <thead>
-                            <tr>
-                            <th>Coin</th>
-                            <th>Total</th>
-                            </tr>
-                        </thead >
-                    <tbody>
-                        ${resultHtml}
-                    </tbody>
-                    </table>`    
-        }       
-  
-        resultBox.innerHTML = `<div class="calculation-result">
-                                  <h2>Coin List : [${CoinList}]</h2>
-                                  <h2>Value Total : ${valueTotal}</h2>
-                                  <br>
-                                  <h3>Hasil Kalkulasi :</h3>
-                                      ${resultHtml}
-                              </div>`             
+        resultBox.innerHTML = '';
+
+        setTimeout(() => {
+            let resultHtml = '';
+            if(results.error){
+                resultHtml += `<h4>${results.error}</h4>`
+            }else{
+                for (let [key, value] of Object.entries(results.results)) {
+                    resultHtml += `
+                    <tr>
+                      <td>${key}</td>
+                      <td>${value}</td>
+                    </tr>`
+                  }
+                  resultHtml =`
+                        <table>
+                            <thead>
+                                <tr>
+                                <th>Coin</th>
+                                <th>Total</th>
+                                </tr>
+                            </thead >
+                        <tbody>
+                            ${resultHtml}
+                        </tbody>
+                        </table>`    
+            }
+            const coinList = CoinList.join(', ')
+            console.log(coinList)
+      
+            resultBox.innerHTML = `<div class="calculation-result">
+                                      <h2>Coin List : [${coinList}]</h2>
+                                      <h2>Value Total : ${valueTotal}</h2>
+                                      <h3>Hasil Kalkulasi :</h3>
+                                      <div class="calculation-container">
+                                          ${resultHtml}
+                                      <div>
+                                  </div>`    
+                            }, 500);         
       }
+      
 
    
   

@@ -12,6 +12,7 @@ export default class extends sharedPageView {
         this.setTitle("Twenty Solver");
         this.setInputField
           `
+          <div class="ts-input">
             <div class="form-container list">  
                 <form id="listForm"> 
                     <p>List : </p>
@@ -21,6 +22,7 @@ export default class extends sharedPageView {
                     <input type="text" placeholder="4">
                 </form>
             </div>
+          </div>
           `
         
         this.setController(twentySolverController);
@@ -42,6 +44,7 @@ export default class extends sharedPageView {
 
     generateResults(results, listData) {
       const resultBox = document.getElementById("resultBox");
+      setTimeout(() => {
       let resultHtml = '';
 
       if (results.error){
@@ -72,8 +75,12 @@ export default class extends sharedPageView {
                               <h2> Number List : [${listData}]</h2>
                               <br>
                               <h3>Hasil Kalkulasi: :</h3>
+                              <div class="calculation-container">
                               ${resultHtml}
+                              <div>
                           </div>`
+
+              },500)
 
       }
 
