@@ -80,7 +80,6 @@ export default class extends sharedPageView {
                         </table>`    
             }
             const coinList = CoinList.join(', ')
-            console.log(coinList)
       
             resultBox.innerHTML = `<div class="calculation-result">
                                       <h2>Coin List : [${coinList}]</h2>
