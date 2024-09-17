@@ -48,14 +48,17 @@ export default class extends sharedPageView {
     }
 
 
+
     generateResults(results, listData) {
       const resultBox = document.getElementById("resultBox");
       resultBox.innerHTML = '';
       setTimeout(() => {
       let resultHtml = '';
 
+      this.logs = results.log;
+
       if (results.error){
-        resultHtml += `<h4 class="error-message"${results.error}</h4>`
+        resultHtml += `<h4 class="error-message">${results.error}</h4>`
       }
       else{
         for (const element of results.results){
@@ -76,6 +79,7 @@ export default class extends sharedPageView {
                       </tbody>
                       </table>`         
       }
+
       let logs ="";
       let logMassage ="";
       for (let log of results.log){
@@ -84,6 +88,8 @@ export default class extends sharedPageView {
       logs +=`
       <div class="log"><h3>log Alogritma:</h3><br>${logMassage}</div>
   `;
+    this.setHtmlLogs(logs);
+  
 
       const splittedListData = listData.join(', ')
 
@@ -91,14 +97,13 @@ export default class extends sharedPageView {
       resultBox.innerHTML = `<div class="calculation-result">
                               <h2> Number List : [${splittedListData}]</h2>
                               <h2> Target : 20 <h3>
-                              <br>
                               <h3>Hasil Kalkulasi: :</h3>
                              <div class="calculation-container">
                                 ${resultHtml}
-                            </div>
-                            <div class="result-log">
-                                ${logs}
-                            </div>
+                              </div>
+                                <div class="liat-log" id="liatLog">Liat Log</div>
+                                <div class="result-log"></div>
+                                <div class="footer"></div>
                           </div>`
 
               },500)

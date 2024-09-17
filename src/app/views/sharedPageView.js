@@ -53,6 +53,10 @@ export default class sharedPageView extends abstractView{
         this.controller = controller;
     }
 
+    setHtmlLogs(logsHtml){
+        this.logs = logsHtml;
+    }
+
 
     eventListener(){
         const mainContainer = document.querySelector(".main-container")
@@ -61,21 +65,8 @@ export default class sharedPageView extends abstractView{
         const removeResultButton = document.getElementById("removeResultContainer");
         const twentySolverInputContainer = document.querySelector(".ts-input")
         const CoinChangeInputContainer = document.querySelector(".cc-input")
-        const burgerIcon = document.getElementById("burger");
-        const menu = document.getElementById('menu');
-
-        burgerIcon?.addEventListener("click", action =>{
-            action.preventDefault();
-            menu.classList.toggle('active');
-        }, false)
-
-        window.addEventListener('resize', ()=>{
-            if (window.innerWidth > 700){
-                if (menu.classList.contains("active")){
-                    menu.classList.toggle('active');
-                }
-            }
-        });
+        const resultBox = document.getElementById("resultBox");
+  
                 
 
        
@@ -94,6 +85,23 @@ export default class sharedPageView extends abstractView{
             }
         }, false);
 
+        resultBox?.addEventListener('click', (event) => {
+            if (event.target && event.target.id === 'liatLog') {
+                const resultBox = document.getElementById("resultBox");
+                const logContent = resultBox.querySelector('.result-log');
+                event.target.classList.toggle('generate');
+                if (event.target.classList.contains('generate')) {
+                    logContent.innerHTML = `${this.logs}`;
+                    logContent.style.display = 'block';
+                } else {
+                    logContent.innerHTML = '';
+                    logContent.style.display = 'none';
+                }
+            }
+        });
+
+
+
         removeResultButton?.addEventListener("click", action => {
             const parentTop = mainContainer.getBoundingClientRect().top;
             const childTop = resultContainer.getBoundingClientRect().top + document.querySelector("header").offsetHeight;
@@ -107,8 +115,6 @@ export default class sharedPageView extends abstractView{
                 behavior: "smooth"
             });
 
-        
-
             resultContainer.classList.remove("visible");
             resultContainer.classList.add("hidden")
 
@@ -116,6 +122,7 @@ export default class sharedPageView extends abstractView{
                 resultContainer.style.top = `0px`
                 resultContainer.classList.remove("appear");
                 resultContainer.classList.add("dissapear");
+                if(twentySolverInputContainer){twentySolverInputContainer.querySelector("p").style.display = 'block'}
             }, 200);
         }, false)
 
@@ -182,13 +189,16 @@ export default class sharedPageView extends abstractView{
                 });
             });
         }
-       
+
+    
+
     }
 
 
     
     renderResultContainer(){  
         const resultContainer = document.getElementById("resultContainer");
+        const twentySolverInputContainer = document.querySelector(".ts-input")
         const windowWidth = window.innerWidth;
 
 
@@ -199,11 +209,13 @@ export default class sharedPageView extends abstractView{
         if (resultContainer.classList.contains('hidden') ) {
             resultContainer.classList.remove('hidden');
             resultContainer.classList.add('visible');
+            
         }
         if (resultContainer.classList.contains('first') ) {
             resultContainer.classList.remove('first');
             resultContainer.classList.add('visible');
         }
+        if (twentySolverInputContainer){ twentySolverInputContainer.querySelector("p").style.display = 'none'};
         if (windowWidth < 700){
             window.scrollTo({
                 top: 700,

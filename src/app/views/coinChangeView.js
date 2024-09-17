@@ -14,7 +14,7 @@ export default class extends sharedPageView {
           Jika nilai tersebut tidak dapat dipecah dengan koin yang tersedia, 
           fungsi akan mengembalikan pesan error. 
           Input 'Coin List' berupa angka (bilangan bulat) yang merepresentasikan jumlah uang yang 
-          ingin dipecah menjadi koin. Input 'Value' berupa bilangan bulat yang berisi denominasi koin. `
+          ingin dipecah menjadi koin. Input 'Target' berupa bilangan bulat yang berisi denominasi koin.`
         );
         this.setTitle("Coin Changes");
         this.setInputField(
@@ -29,7 +29,7 @@ export default class extends sharedPageView {
             </div>
             <div class="form-container value">  
                 <form id="valueForm">
-                    <p>Target : </p>
+                    <p>Target:</p>
                     <input type="text" id="valueInput" placeholder="87">
                 </form>
             </div>
@@ -50,12 +50,13 @@ export default class extends sharedPageView {
     } 
 
 
+
+
     generateResults(results, valueTotal, CoinList) {
         const resultBox = document.getElementById("resultBox");
-        const uniqueData = results.results.filter((item, index, self) => 
-            self.findIndex(t => t.value === item.value) === index
-        );
+
         
+        this.logs = results.log;
 
         resultBox.innerHTML = '';
         setTimeout(() => {
@@ -63,6 +64,10 @@ export default class extends sharedPageView {
             if(results.error){
                 resultHtml += `<h4 class="error-message" id="errorMessage">${results.error}</h4>`
             }else{
+                const uniqueData = results.results.filter((item, index, self) => 
+                    self.findIndex(t => t.value === item.value) === index
+                );
+                
                 for (let result of uniqueData) {
                         resultHtml += `
                         <tr>
@@ -94,6 +99,9 @@ export default class extends sharedPageView {
                     <div class="log"><h3><br>${logMassage}</div>
                 `
             }
+
+            this.setHtmlLogs(logs);
+
             const coinList = CoinList.join(', ')
       
             resultBox.innerHTML = `<div class="calculation-result">
@@ -103,10 +111,10 @@ export default class extends sharedPageView {
                                       <div class="calculation-container">
                                           ${resultHtml}
                                       </div>
+                                        <div class="liat-log" id="liatLog">Liat Log</div>
                                       <div class="result-log">
-                                      <h1>log Alogritma:</h1>
-                                        ${logs}
                                       </div>
+                                      <div class="footer"></div>
                                   </div>`    
                             }, 500);         
       }

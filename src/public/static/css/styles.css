@@ -139,9 +139,45 @@ nav a {
     color: #ffffff;
     text-decoration: none;
 }
+.github-logo.burger {
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+.liat-log {
+    margin-top: 20px;
+    width: auto;
+    font-size: 40px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    transform-origin: top left;
+}
+
+.liat-log:hover {
+    transform: scale(1.02);
+}
+
+.liat-log::after {
+    content: "\f054";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-left: 10px;
+}
+
+.liat-log.generate::after {
+    content: "\f078";
+}
+
+
+.calculation-result{
+    margin-bottom: 50px;
+}
+
 
 @media screen and (max-width : 700px) {
-    .github-logo {
+    .github-logo.nav{
         display: none;
     }
     nav{
@@ -150,6 +186,8 @@ nav a {
     .burger-icon{
         display: block;
     }
+
+
 }
 
 nav a:hover {
@@ -241,12 +279,22 @@ main {
     margin-bottom: 20px;
 }
 
+
+
 .log {
     margin-bottom:20px;
 }
 
 .result-log {
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+    
+}
+
+.calculation-result .footer{
+    margin-bottom: 200px;
 }
 
 .calculation-result{
@@ -346,7 +394,7 @@ button-container .span{
 }
 
 .button:hover, .button:focus, .button:active {
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 0 20px rgb7 a(0, 0, 0, 0.5);
     transform: scale(1.1);
     
 }
@@ -456,6 +504,7 @@ main .input-container{
 }
 
 
+
 .button-container.calculate section{
     margin: 0px;
     margin-top: 8px;
@@ -488,7 +537,36 @@ main .input-container{
 
 @media screen and (max-width: 420px) {
     main {
-        transform: scale(0.8);
+        transform: scale(0.9);
+    }
+    
+    .liat-log {
+        font-size: 24px;
+    }
+
+    .ts-input input {
+        margin-left: 0px;
+        margin-right: 0px;
+        padding-left: 8px;
+    }
+
+
+}
+
+@media screen and (max-width: 540px) {
+
+    .ts-input input {
+        margin-left: 0px;
+        margin-right: 10px;
+        
+    }
+
+
+    .ts-input p {
+        display: none;
+    }
+    .ts-input form{
+        width: 100%;
         
     }
 
@@ -562,13 +640,7 @@ tr:hover {
         right: -200%;
     }
 }
-@media screen and (max-width: 420px) {
-    main {
-        transform: scale(0.8);
-        
-    }
 
-}
 
 
 

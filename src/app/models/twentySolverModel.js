@@ -91,7 +91,7 @@ export function calculateTwentySolver(numbers) {
     //Jika tidak ada solusi yang ditemukan, beri pesan bahwa tidak ada solusi
     if (!foundSolutions) {
         log.push("No valid solutions found.");
-        return { error: "Operasi ini tidak memungkinkan.", log: log };
+        return { error: "tidak ada Operasi yang memungkinkan.", log: log };
     } else {
         log.push("Valid solutions found.");
         return { results: solutions, log: log }; // Kembalikan semua solusi yang ditemukan

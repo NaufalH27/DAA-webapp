@@ -45,9 +45,9 @@ export function calculateCoinChange(X, arr) {
     // Jika masih ada sisa X
     if (X > 0) {
         log.push([`Target tersisa ${X} dari ${XBeforeCalculation} , sedangkan array sudah kosong, Tidak bisa memberikan kembalian dengan tepat atau input tidak valid`]);
-        return { error: `Tidak bisa memberikan kembalian dengan tepat atau input tidak valid: Value bersisa ${X} dari ${XBeforeCalculation} dan element dalam array sudah habis ([])`, log: log };
+        return { error: `Tidak bisa memberikan kembalian dengan tepat atau input tidak valid: Target bersisa ${X} dan element dalam array sudah habis ([])`, log: log };
     } else {
-        log.push([`Value tersisa 0, program Sukses di jalankan`]);
+        log.push([`Target tersisa 0, program Sukses di jalankan`]);
     }
 
     return { results: result, log: log };
