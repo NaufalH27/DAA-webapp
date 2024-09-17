@@ -63,13 +63,13 @@ export default class sharedPageView extends abstractView{
         const submitButton = document.getElementById('submitButton');
         const resultContainer = document.getElementById("resultContainer");
         const removeResultButton = document.getElementById("removeResultContainer");
-        const twentySolverInputContainer = document.querySelector(".ts-input")
-        const CoinChangeInputContainer = document.querySelector(".cc-input")
+        const twentySolverInputContainer = document.querySelector(".ts-input");
+        const CoinChangeInputContainer = document.querySelector(".cc-input");
         const resultBox = document.getElementById("resultBox");
   
                 
 
-       
+        //entry point 
         submitButton?.addEventListener('click', action => {
             action.preventDefault();
             
@@ -85,6 +85,14 @@ export default class sharedPageView extends abstractView{
             }
         }, false);
 
+
+
+
+        
+        //decoration
+        //everything below here is for responsive ability of the web ui
+
+
         resultBox?.addEventListener('click', (event) => {
             if (event.target && event.target.id === 'liatLog') {
                 const resultBox = document.getElementById("resultBox");
@@ -99,8 +107,6 @@ export default class sharedPageView extends abstractView{
                 }
             }
         });
-
-
 
         removeResultButton?.addEventListener("click", action => {
             const parentTop = mainContainer.getBoundingClientRect().top;
@@ -193,7 +199,6 @@ export default class sharedPageView extends abstractView{
     
 
     }
-
 
     
     renderResultContainer(){  
