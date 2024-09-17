@@ -55,7 +55,6 @@ export default class extends sharedPageView {
     generateResults(results, valueTotal, CoinList) {
         const resultBox = document.getElementById("resultBox");
 
-        
         this.logs = results.log;
 
         resultBox.innerHTML = '';

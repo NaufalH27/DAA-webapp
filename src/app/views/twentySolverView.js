@@ -41,9 +41,7 @@ export default class extends sharedPageView {
       inputs.forEach(input => {
           valuesList.push(input.value);
       });
-
-  
-
+      
       return { body : { arr : valuesList } };
     }
 

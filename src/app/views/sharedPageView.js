@@ -59,17 +59,8 @@ export default class sharedPageView extends abstractView{
 
 
     eventListener(){
-        const mainContainer = document.querySelector(".main-container")
-        const submitButton = document.getElementById('submitButton');
-        const resultContainer = document.getElementById("resultContainer");
-        const removeResultButton = document.getElementById("removeResultContainer");
-        const twentySolverInputContainer = document.querySelector(".ts-input");
-        const CoinChangeInputContainer = document.querySelector(".cc-input");
-        const resultBox = document.getElementById("resultBox");
-  
-                
-
         //entry point 
+        const submitButton = document.getElementById('submitButton');
         submitButton?.addEventListener('click', action => {
             action.preventDefault();
             
@@ -91,6 +82,12 @@ export default class sharedPageView extends abstractView{
         
         //decoration
         //everything below here is for responsive ability of the web ui
+        const mainContainer = document.querySelector(".main-container")
+        const resultContainer = document.getElementById("resultContainer");
+        const removeResultButton = document.getElementById("removeResultContainer");
+        const twentySolverInputContainer = document.querySelector(".ts-input");
+        const CoinChangeInputContainer = document.querySelector(".cc-input");
+        const resultBox = document.getElementById("resultBox");
 
 
         resultBox?.addEventListener('click', (event) => {
@@ -195,9 +192,6 @@ export default class sharedPageView extends abstractView{
                 });
             });
         }
-
-    
-
     }
 
     
