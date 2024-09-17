@@ -1,11 +1,17 @@
 
-# Tugas Desain Analisis ALgoritma
+# Tugas Desain Analisis Algoritma
+### implementasi greedy algorithm dalam masalah "Coin Change" dan implementasi brute force dalam masalah "20-solver" 
+
+#### kelompok:
 - Naufal Hisyam Muzakki L0123106
 - Mukhlish Abdurrahman L0123100
 
 <br>
 
-> > > > > [URL WEBSITE](https://example.com) < < < < <
+<p align="center">
+<strong style="font-size: 24px;">&gt; &gt; &gt; &gt; &gt; <a href="https://example.com">URL WEBSITE</a> &lt; &lt; &lt; &lt; &lt;</strong>
+</p>
+
 
 <br>
 
