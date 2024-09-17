@@ -38,7 +38,7 @@ node src/app.js
 ```
 
 
-5. Buka browser dan Akses URL  this url:
+5. Buka browser dan Akses URL:
 ```bash
 http:\\localhost:8000
 ```
