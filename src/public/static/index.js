@@ -63,11 +63,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }, false)
 
     window.addEventListener('resize', ()=>{
-        if (window.innerWidth > 700){
-            if (menu.classList.contains("active")){
-                menu.classList.toggle('active');
-            }
+      const twentySolverInputContainer = document.querySelector(".ts-input")
+      const calcResult = document.querySelector('.calculation-result');
+      const resultLog = document.querySelector('.result-log p');
+      
+      if (calcResult && calcResult.offsetWidth <= 450) {
+          calcResult.style.paddingLeft = '16px';
+          if (resultLog){
+            resultLog.style.fontSize = '15px';
+
+          }
+      } else if(calcResult && calcResult.offsetWidth > 450){
+          calcResult.style.paddingLeft = '50px';
+          if (resultLog){
+            resultLog.style.fontSize = '24px';
+
+          }
+      }
+      if (window.innerWidth > 700){
+          if (menu.classList.contains("active")){
+              menu.classList.toggle('active');
+          }
+      }
+      if (twentySolverInputContainer){
+        const form = twentySolverInputContainer.querySelector(".form-container")
+        if (form && form.offsetWidth < 471){
+          form.querySelector("p").style.display = 'none';
+          form.querySelectorAll("input").forEach(element => {
+            element.style.marginLeft = "4px";
+            element.style.paddingLeft = "8px";
+          })
         }
+        if (form && form.offsetWidth >=471){
+          form.querySelector("p").style.display = 'block';
+          form.querySelectorAll("input").forEach(element => {
+            element.style.marginLeft = "20px";
+            element.style.paddingLeft = "15px";
+          })
+        }
+      }
     });
 
     menuList.forEach(element => {
@@ -90,16 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.addEventListener('resize', function() {
-  const calcResult = document.querySelector('.calculation-result');
-  const resultLog = document.querySelector('.result-log p');
 
-  if (calcResult && calcResult.offsetWidth <= 450) {
-      calcResult.style.paddingLeft = '16px';
-      resultLog.style.fontSize = '15px';
-  } else {
-      calcResult.style.paddingLeft = '50px';
-      resultLog.style.fontSize = '24px';
-  }
 });
 
 window.addEventListener("popstate", router);

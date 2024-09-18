@@ -535,7 +535,7 @@ main .input-container{
 }
 
 
-@media screen and (max-width: 460px) {
+@media screen and (max-width: 420px) {
     main {
         transform: scale(0.9);
     }
@@ -544,41 +544,8 @@ main .input-container{
         font-size: 24px;
     }
 
-    .ts-input input {
-        margin-left: 0px;
-        margin-right: 0px;
-        padding-left: 8px;
-    }
-
-    .calculation-result {
-        padding-left: 16px;
-    }
-
-    .result-log p{
-        font-size: 15px;
-    }
-
-
 }
 
-@media screen and (max-width: 540px) {
-
-    .ts-input input {
-        margin-left: 0px;
-        margin-right: 10px;
-        
-    }
-
-
-    .ts-input p {
-        display: none;
-    }
-    .ts-input form{
-        width: 100%;
-        
-    }
-
-}
 
 
 

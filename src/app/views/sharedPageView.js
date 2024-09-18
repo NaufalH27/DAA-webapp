@@ -125,7 +125,6 @@ export default class sharedPageView extends abstractView{
                 resultContainer.style.top = `0px`
                 resultContainer.classList.remove("appear");
                 resultContainer.classList.add("dissapear");
-                if(twentySolverInputContainer){twentySolverInputContainer.querySelector("p").style.display = 'block'}
             }, 200);
         }, false)
 
@@ -197,7 +196,6 @@ export default class sharedPageView extends abstractView{
     
     renderResultContainer(){  
         const resultContainer = document.getElementById("resultContainer");
-        const twentySolverInputContainer = document.querySelector(".ts-input")
         const windowWidth = window.innerWidth;
 
 
@@ -214,7 +212,6 @@ export default class sharedPageView extends abstractView{
             resultContainer.classList.remove('first');
             resultContainer.classList.add('visible');
         }
-        if (twentySolverInputContainer){ twentySolverInputContainer.querySelector("p").style.display = 'none'};
         if (windowWidth < 700){
             window.scrollTo({
                 top: 700,
