@@ -4,7 +4,7 @@ export default class extends abstractView {
 
     constructor(){
         super();
-        this.setTitle("Tugas Desain ANalisis Algoritma");
+        this.setTitle("Tugas Desain Analisis Algoritma");
 
     }
 

@@ -53,7 +53,7 @@ const router = async() => {
 document.addEventListener("DOMContentLoaded", () => {
     const burgerIcon = document.getElementById("burger");
     const menu = document.getElementById('menu');
-    const menuList = menu.querySelectorAll("li")
+    const menuList = menu.querySelectorAll("a")
 
     
 
