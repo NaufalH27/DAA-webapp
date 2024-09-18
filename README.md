@@ -9,7 +9,7 @@
 <br>
 
 <p align="center">
-<strong style="font-size: 24px;">&gt; &gt; &gt; &gt; &gt; <a href="https://daa-webapp-tugas1.vercel.app/>URL WEBSITE</a> &lt; &lt; &lt; &lt; &lt;</strong>
+<strong style="font-size: 24px;">&gt; &gt; &gt; &gt; &gt; <a href="https://daa-webapp-tugas1.vercel.app/">URL WEBSITE</a> &lt; &lt; &lt; &lt; &lt;</strong>
 </p>
 
 
