@@ -89,6 +89,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
 });
 
+window.addEventListener('resize', function() {
+  const calcResult = document.querySelector('.calculation-result');
+  const resultLog = document.querySelector('.result-log p');
+
+  if (calcResult && calcResult.offsetWidth <= 450) {
+      calcResult.style.paddingLeft = '16px';
+      resultLog.style.fontSize = '15px';
+  } else {
+      calcResult.style.paddingLeft = '50px';
+      resultLog.style.fontSize = '24px';
+  }
+});
+
 window.addEventListener("popstate", router);
 
 

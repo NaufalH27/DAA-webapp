@@ -535,7 +535,7 @@ main .input-container{
 }
 
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 460px) {
     main {
         transform: scale(0.9);
     }
@@ -548,6 +548,14 @@ main .input-container{
         margin-left: 0px;
         margin-right: 0px;
         padding-left: 8px;
+    }
+
+    .calculation-result {
+        padding-left: 16px;
+    }
+
+    .result-log p{
+        font-size: 15px;
     }
 
 
