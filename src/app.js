@@ -15,4 +15,4 @@ app.get("/*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "public", "index.html"));
 });
 
-app.listen(process.env.port || 8080, () => console.log("Server Running..."));
+export default app;
