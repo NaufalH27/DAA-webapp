@@ -9,7 +9,7 @@
 <br>
 
 <p align="center">
-<strong style="font-size: 24px;">&gt; &gt; &gt; &gt; &gt; <a href="https://example.com">URL WEBSITE</a> &lt; &lt; &lt; &lt; &lt;</strong>
+<strong style="font-size: 24px;">&gt; &gt; &gt; &gt; &gt; <a href="https://daa-webapp-tugas1.vercel.app/>URL WEBSITE</a> &lt; &lt; &lt; &lt; &lt;</strong>
 </p>
 
 
@@ -34,7 +34,7 @@ npm install
 
 4. Jalankan Program
 ```bash
-node src/app.js
+node src/demo.js
 ```
 
 
@@ -42,4 +42,4 @@ node src/app.js
 ```bash
 http:\\localhost:8000
 ```
-- note : bisa di ubah di app.js
+- note : bisa di ubah di demo.js
