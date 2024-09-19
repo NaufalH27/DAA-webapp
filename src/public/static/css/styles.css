@@ -536,10 +536,6 @@ main .input-container{
 
 
 @media screen and (max-width: 420px) {
-    main {
-        transform: scale(0.9);
-    }
-    
     .liat-log {
         font-size: 24px;
     }
